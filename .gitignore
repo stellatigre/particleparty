@@ -1,5 +1,4 @@
-../Assets/Standard Assets/
-../Library/
+/Library/
 tmp/
 *.tmp
 *.bak
