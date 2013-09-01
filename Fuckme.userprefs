@@ -1,0 +1,21 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Custom Scripts\OrbitManager.js">
+    <Files>
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" Line="540" Column="1" />
+      <File FileName="Assets\Custom Scripts\Raycasting.js" Line="43" Column="20" />
+      <File FileName="Assets\Custom Scripts\BubbleLaserParticleManager.js" Line="25" Column="29" />
+      <File FileName="Assets\PlatformManager.js" Line="46" Column="6" />
+      <File FileName="Assets\Custom Scripts\ConjurePlatform.js" Line="137" Column="1" />
+      <File FileName="Assets\Custom Scripts\ElevatorManager.js" Line="26" Column="24" />
+      <File FileName="Assets\Images\BlazeItManager420.js" Line="30" Column="55" />
+      <File FileName="Assets\Custom Scripts\OrbitManager.js" Line="2" Column="1" />
+      <File FileName="Assets\AudioManager.js" Line="22" Column="41" />
+      <File FileName="Assets\platformPopulator.js" Line="33" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
