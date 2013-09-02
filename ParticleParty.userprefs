@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Custom Scripts\ConjurePlatform.js">
+    <Files>
+      <File FileName="Assets\Custom Scripts\Raycasting.js" Line="53" Column="57" />
+      <File FileName="Assets\Custom Scripts\BubbleLaserParticleManager.js" Line="1" Column="1" />
+      <File FileName="Assets\Custom Scripts\ConjurePlatform.js" Line="151" Column="1" />
+      <File FileName="Assets\Custom Scripts\jsYoYo.js" Line="10" Column="2" />
+      <File FileName="Assets\Custom Scripts\tweenFader.js" Line="60" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
