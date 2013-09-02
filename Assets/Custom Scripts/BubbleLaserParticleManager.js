@@ -4,6 +4,7 @@ private var collisionEvents = new ParticleSystem.CollisionEvent[16];
 private var power = 40;
 private var mouseForceMod : int = 1;
 private var newColor : Color;
+private var picoPops : AudioClip[];
 
 function Start() {
 
@@ -34,6 +35,7 @@ function OnParticleCollision(other : GameObject) {
 	// apply some force to RigidBody components
 	for (var i = 0; i < numCollisionEvents; i++) {
 		if (other.rigidbody) {
+			//playClipWithPitch(
 			// mouseForceMod determines direction
 			var force = mouseForceMod*(collisionEvents[i].velocity * power);
 			other.rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;

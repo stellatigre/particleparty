@@ -5,7 +5,7 @@ var audioObj : GameObject;
 private var audioData: AudioSource;
 private var blazeIt : boolean;
 private var blazeFactor: float = 0.75;
-var howHigh: float;
+private var howHigh: float;
 
 function Start () {
 		audioObj = GameObject.Find("Main Camera");
@@ -19,10 +19,6 @@ function OnControllerColliderHit(hit:ControllerColliderHit){
 }
 
 function Update () {
-		//Debug.Log('timescale: '+Time.timeScale);
-		//Debug.Log('blazeIt = '+blazeIt);
-		//Debug.Log('pitch : '+audioData.pitch);	
-		//Debug.Log('howHigh : '+howHigh);
 	// handles audio & time pitch down & up
 	if (audioData) {
 		// clamp that shit
@@ -39,8 +35,8 @@ function Update () {
 			if (Time.timeScale > blazeFactor) {
 				Time.timeScale -= 0.00175;
 			}
-			if (howHigh < 0.0015){
-				howHigh += 0.00000025;
+			if (howHigh < 0.0024){
+				howHigh += 0.00000020;
 			}
 		} // should we go back up ?
 		else if (blazeIt == false && audioData.pitch < 1) {
@@ -58,3 +54,8 @@ function Update () {
 		Start(); 
 	}
 }
+
+//Debug.Log('timescale: '+Time.timeScale);
+//Debug.Log('blazeIt = '+blazeIt);
+//Debug.Log('pitch : '+audioData.pitch);	
+//Debug.Log('howHigh : '+howHigh);

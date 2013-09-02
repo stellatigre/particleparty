@@ -15,17 +15,19 @@ private var pullSrc : AudioSource;								// that are on our lineObj
 private var pushVol : float;
 private var pullVol : float;  														
 
-inTweenParms  = TweenParms().Prop("volume", 1.0f); 				// Property: volume, go to 1.0f
+inTweenParms  = TweenParms().Prop("volume", 0.6f); 			// Property: volume, go to 0.67f
 outTweenParms = TweenParms().Prop("volume", 0.0f); 				// Property: volume go to 0.0f
 //upParticleParms = TweenParms().Prop("emissionRate", 50);
 
 function Start () {
-	var deezParticles = gameObject.GetComponent(ParticleSystem);
+	HOTween.Init(true, true, true);
+	HOTween.EnableOverwriteManager(true);
+	//var deezParticles = gameObject.GetComponent(ParticleSystem);
 	var audioSources = gameObject.GetComponents(AudioSource);
 	pushSrc = audioSources[0];  								// order isn't guaranteed, but
 	pullSrc = audioSources[1];  								// it seems to be stable.
 
-	pushSrc.volume = 1;											// we default to pushing,
+	pushSrc.volume = .6;											// we default to pushing,
 	pullSrc.volume = 0;											// since that happens before pulls
 }
 

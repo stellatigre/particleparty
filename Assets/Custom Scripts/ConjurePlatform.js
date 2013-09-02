@@ -41,36 +41,39 @@ function Start () {
 	audioShellCopy = GameObject.Instantiate(audioShellObject);
 }
 
+
 // Needed the ability to have random pitch variations.
 function playClipWithPitch(clip : AudioClip, clipPos: Vector3, volume : float){
  	var obj = audioShellCopy;
  																// functions much like PlayClipAtPoint
  	obj.audio.clip = clip;										// except with randomized pitch
     obj.transform.position = clipPos;							
-    obj.audio.pitch = Random.Range(0.875, 1.125);				
+    obj.audio.pitch = Random.Range(0.9, 1.1);				
     															
-    obj.audio.PlayOneShot(clip, volume);
+    obj.audio.PlayOneShot(clip, volume);						// play sound
      
-    yield WaitForSeconds(clip.length / obj.audio.pitch);
-    obj.audio.clip = null;
+    yield WaitForSeconds((clip.length / obj.audio.pitch)+.1);
+    obj.audio.clip = null;   // get rid of our Clip
 }
+
 
 function failCloudManager() {
 // play clip louder if the last cast was sooner, we have a 5-second window
 	if (timeSinceCast < 5) {
-		clipVolume = (1/(timeSinceCast/2));
+		clipVolume = (1/(timeSinceCast/2)+.1);
 	}
-	playClipWithPitch(castFailureSound, pPos + offset, clipVolume);
+	playClipWithPitch(castFailureSound, pPos + offset, clipVolume);		// plays the sound
 	
 	if (failCloud != null){
-		failCloud.transform.position = pPos + offset;			// does the failCloud already exist ?
-		failCloud.particleSystem.Play();						// let's just move/restart it, then
+		failCloud.transform.position = pPos + offset;					// does the failCloud already exist ?
+		failCloud.particleSystem.Play();								// let's just move/restart it, then
 	} 
 	else if (failCloud == null){  // failCloud doesn't exist yet?...create it!
 		failCloud = GameObject.Instantiate(castFailParticles, pPos, Quaternion.identity);
 	}	
 	lastCastFailTime =  Time.time;	
 }
+
 
 //handles cases of cast failure arising from checkCast
 function castFail() {
@@ -86,6 +89,7 @@ function castFail() {
 	}
 }
 
+
 function xyzRaycast(distance : float) {
 // CheckSphere always collided - this one just does the 6 cardinal directions in 3D -
 	var anyHits : boolean = false;
@@ -100,12 +104,12 @@ function xyzRaycast(distance : float) {
 	return anyHits;
 }
 
+
 // on success of checkCast, instantiate thing w/ sound & particle effects
 function makePlatform(prefab : GameObject) {
 	
-	playClipWithPitch(castSuccessSound, pPos + offset, .8);
-	//audio.PlayClipAtPoint(castSuccessSound, pPos + offset);
-	// the GameObject is particle effects - create them if not created yet
+	playClipWithPitch(castSuccessSound, pPos + offset, .67);
+	// this GameObject is particle effects - create them if not created yet
 	if (castCloud == null){
 		castCloud = GameObject.Instantiate(successParticles, pPos + offset, transform.rotation);
 	} 
@@ -118,6 +122,8 @@ function makePlatform(prefab : GameObject) {
 	// keepin' track
 	lastCastTime = Time.time;
 }
+
+
 
 // listens for keypresses and checks conditions
 // gObject is the prefab to make on successful cast
@@ -143,6 +149,7 @@ function checkCast(key : String, gObject : GameObject) {
 	}
 }
 
+
 function Update () {
 	// shall we do anything ?
 	pPos = gameObject.transform.position;
@@ -150,6 +157,7 @@ function Update () {
 	checkCast('r', orbitPlatform);
 
 }
+
 
 function logCrawl () {
 	//Debug.Log('ray cast to : '+castCheckRays[d]+' is false');
@@ -160,4 +168,7 @@ function logCrawl () {
 	//Debug.Log('grounded : '+CC.isGrounded);
 	//Debug.Log('audioClip at pitch'+obj.audio.clip);
     //Debug.Log('audio.clip pitch'+obj.audio.pitch);
+	//Debug.Log('is audio playing ? '+obj.audio.isPlaying);
 }
+
+//audio.PlayClipAtPoint(castSuccessSound, pPos + offset);
