@@ -78,7 +78,7 @@ public class BubbleLaserManager : MonoBehaviour {
 	public void OnParticleCollision(GameObject other) 
 	{  
     	collisionEvents = gameObject.particleSystem.GetCollisionEvents(other, collisionEvents);
-   					 // get collision events for the gameObject that the script is attached to
+   					// get collision events for the gameObject that the script is attached to
     	for (int i=0; i == collisionEvents.Length; i++) 
 		{
         	if (other.rigidbody) 
@@ -86,7 +86,7 @@ public class BubbleLaserManager : MonoBehaviour {
             	playBubbles(other);				// here we handle SFX and color shifting
             	colorShiftTarget(other);
 
-				if (Input.GetMouseButton(1) == true) {mouseForceMod = -1;}
+			    if (Input.GetMouseButton(1) == true) {mouseForceMod = -1;}
  			    else {mouseForceMod = 1;}      // mouse input determines direction
 
           	    private float force = mouseForceMod*(collisionEvents[i].velocity * power);
