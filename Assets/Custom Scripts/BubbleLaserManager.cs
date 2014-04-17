@@ -21,7 +21,7 @@ public class BubbleLaserManager : MonoBehaviour {
 	ParticleSystem.CollisionEvent[] collisionEvents = new ParticleSystem.CollisionEvent[16];
 
 	private SoundPoolManager spm;  // shortcut to our SoundPoolManager
-	AudioClip[] popSounds;			// Bubble sounds
+	AudioClip[] popSounds;         // Bubble sounds
 
 	public void Start() 
 	{
